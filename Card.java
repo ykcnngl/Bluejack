@@ -1,18 +1,18 @@
 public class Card{
 	
 	private String color;
-	private String no;
+	private int no;
 	
-	public Card(String color, String no) {
+	public Card(String color, int no) {
 		this.color=color;
 		this.no=no;
 	}
 	
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
 	
-	public String setNo() {
+	public int setNo() {
 		return no;
 	}
 	
