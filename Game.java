@@ -10,9 +10,8 @@ public class Game {
 			System.out.print(d1.cardShow(k).getColor() + d1.cardShow(k).getNo()+ " ");
 		}
 		System.out.println();
+		System.out.println("AFTER SHUFFLE");
 		d1.Shuffle();
-
-
 	}
 
 }
