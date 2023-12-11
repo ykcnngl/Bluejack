@@ -10,7 +10,7 @@ public class Game {
 			System.out.print(d1.cardShow(k).getColor() + d1.cardShow(k).getNo()+ " ");
 		}
 		System.out.println();
-		d1.saas();
+		d1.Shuffle();
 
 
 	}

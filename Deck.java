@@ -19,24 +19,25 @@ public class Deck {
 		} 
 	}
 
-	public void saas() {
-		tempCards = new Card[40];
-		tempCards = cards;
-		for(int i = 0; i<40; i++){
-			int a = rd.nextInt(0,40);
-			while(tempCards[a].getNo()==0){
-				a = rd.nextInt(0,40);
-				tempCards[a]=tempCards[a];
-			}
-			cards[i] = tempCards[a];
-		}
-		for(int i = 0; i<40; i++){
-					System.out.print(cards[i].getColor()+cards[i].getNo()+" ");
-				}
-			}
-	public Card cardShow(int no) {
-		return cards[no]; 
-	}
+	public void Shuffle() {
+        Random rd = new Random();
 
+        for (int i = 39; i > 0; i--) {
+            int j = rd.nextInt(i + 1);
+
+            // Swap işlemi
+            Card temp = cards[i];
+            cards[i] = cards[j];
+            cards[j] = temp;
+        }
+
+        for (int i = 0; i < 40; i++) {
+            System.out.print(cards[i].getColor() + cards[i].getNo() + " ");
+        }
+    }
+
+    public Card cardShow(int no) {
+        return cards[no];
+    }
 	
 }
