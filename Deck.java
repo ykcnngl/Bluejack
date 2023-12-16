@@ -7,9 +7,8 @@ public class Deck {
 	private int cardNumber;
 	private Card[] cards;
 	public Card[] tempCards;
-	private String[] sign = {"+", "-"};
-	private int[] noTwo = {1, 2, 3, 4, 5, 6};
-	private CardTwo[] cardTwo ;
+	Card[] randomcards = new Card[5];
+
 	
 	public Deck() {
 		cards = new Card[40];
@@ -43,7 +42,7 @@ public class Deck {
         return cards[no];
     }
 	
-	public void DeckExtra() {
+	/*public void DeckExtra() {
 		Random rd = new Random();
 		cardTwo = new CardTwo[48];
 		for (int k = 0; k < color.length; k++){
@@ -65,6 +64,15 @@ public class Deck {
 		}
 
 
+	}*/
+	
+	public void randomcards() {
+		for (int i = 0; i < 3; i++){
+			int b = rd.nextInt(1,7);
+			int a = rd.nextInt(0,4);
+			randomcards[i] = new Card (colors[a],b);
+
+		}
 	}
 
 

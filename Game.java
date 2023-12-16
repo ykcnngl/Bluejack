@@ -12,7 +12,7 @@ public class Game {
 		System.out.println();
 		System.out.println("AFTER SHUFFLE");
 		d1.Shuffle();
-		d1.DeckExtra();
+		d1.randomcards();
 	}
 
 }
