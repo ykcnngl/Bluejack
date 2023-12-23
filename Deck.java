@@ -207,40 +207,8 @@ public void SelectCardForComputer(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public Card cardShow(int no) {
+	
+public Card cardShow(int no) {
         return cards[no];
     }
 	
@@ -248,8 +216,58 @@ public void SelectCardForComputer(){
 	
 
 
-	
+public void giveRandomCardToPlayer() {
+    int randomCardIndex = rd.nextInt(40);
+    // Rastgele kartı oyuncuya ver
+    System.out.println("Player received a random card: " + cards[randomCardIndex].getColor() + cards[randomCardIndex].getNo());
+    // Oyuncunun destesine ekle
+    // (Burada uygun bir indeks belirleyip, kartı playerdeck veya playergamedeck'e eklemeniz gerekecek)
+}
 
+public void giveRandomCardToComputer() {
+    int randomCardIndex = rd.nextInt(40);
+    // Rastgele kartı bilgisayara ver
+    System.out.println("Computer received a random card: " + cards[randomCardIndex].getColor() + cards[randomCardIndex].getNo());
+    // Bilgisayarın destesine ekle
+    // (Burada uygun bir indeks belirleyip, kartı computerdeck veya playercomputerdeck'e eklemeniz gerekecek)
+}
+
+public void removePlayedCardFromPlayerDeck(int playedCardNumber) {
+    // Oyuncunun attığı kartı playerdeck veya playergamedeck'ten çıkar
+    // (Burada uygun bir indeks belirleyip, kartı playerdeck veya playergamedeck'ten çıkartmanız gerekecek)
+}
+
+public void removePlayedCardFromComputerDeck() {
+    // Bilgisayarın attığı kartı computerdeck veya playercomputerdeck'ten çıkar
+    // (Burada uygun bir indeks belirleyip, kartı computerdeck veya playercomputerdeck'ten çıkartmanız gerekecek)
+}
+public int playPlayerCard(int number) {
+    if (number >= 1 && number <= 4) {
+        int index = number - 1;
+        System.out.println("Player played: " + GamePlayerDeck[index].getColor() + GamePlayerDeck[index].getNo());
+        
+        return GamePlayerDeck[index].getNo();
+    } else {
+        System.out.println("Invalid number. Please select a number between 1 and 4.");
+        return 0;
+    }
+}
+
+public int computerPlay() {
+    int computerCardIndex = rd.nextInt(4);
+    System.out.println("Computer played: " + GameComputerDeck[computerCardIndex].getColor() + GameComputerDeck[computerCardIndex].getNo());
+   
+    return GameComputerDeck[computerCardIndex].getNo();
+}
+public void addToPlayerGameDeck() {
+    // Attıktan sonra çekilen kartı playergamedeck'e ekle
+    // (Burada uygun bir indeks belirleyip, kartı playergamedeck'e eklemeniz gerekecek)
+}
+
+public void showPlayerGameDeck() {
+    // Oyuncunun elindeki kartları göster
+    // (Burada uygun bir döngü kullanarak kartları ekrana bastırabilirsiniz)
+}
 
 
 }
