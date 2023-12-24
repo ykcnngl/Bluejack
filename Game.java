@@ -17,7 +17,7 @@ static int sumScoreForPlayer = 0;
 static int sumScoreForComputer = 0;
 
 public static void playerUseCard() {
-        System.out.println("\n**************\nKart atmak için 1 basın" + "\nKart çekmek için 2 ye basın"+"\nDurmak için 3\n****************");
+        System.out.println("\n**************\nPress 1 to throw a card" + "\nPress 2 to draw a card"+"\nPress 3 to exit\n****************");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
         while(choice<1 & choice>3){
@@ -74,7 +74,7 @@ public static void playerUseCard() {
                 boardCounter++;
 
             }
-        }else System.out.println("PC KART ATMIYOR");
+        }else System.out.println("Computer Passed");
     }
     public static void printCards(){
         System.out.println("\n************\nPlayer Deck\t\t\t\tPlayer Score = " + sumValueForPlayer);

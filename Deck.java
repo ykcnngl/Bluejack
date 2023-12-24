@@ -4,14 +4,11 @@ public class Deck {
 	Random rd = new Random(System.currentTimeMillis());
 	private String[] color = {"Y","R","B","G" };   //YELLOW RED BLUE GREEN
 	private int[] no = {1,2,3,4,5,6,7,8,9,10};
-	private int cardNumber;
 	private Card[] cards;
-	public Card[] tempCards;
-	public Card[] randomCards = new Card[5];
-	public Card[] playerdeck = new Card[10];
+	private Card[] randomCards = new Card[5];
+	private Card[] playerdeck = new Card[10];
 	public Card[] computerdeck = new Card[10];
 	public Card[] gameDeck = new Card[30];
-
 	public Card[] GamePlayerDeck = new Card[4];
 	public Card[] GameComputerDeck = new Card[4];
 
@@ -54,18 +51,18 @@ public class Deck {
 
 
 	public void dealPlayerCard(){
-		//System.out.println("\nOyuncu kartları");
-		int idx=39;
+		//System.out.println("\nPlayer Cards");
+		int index=39;
 		for (int i = 0; i < 5; i++) {
-            playerdeck[i] = cards[idx];
-			idx--;
+            playerdeck[i] = cards[index];
+			index--;
         }
 	/*for (int i = 0; i < 5; i++) {
 			System.out.print(playerdeck[i].getColor() + playerdeck[i].getNo() + " ");
 	}*/
 	}
 	public void dealComputerCard(){
-		//System.out.println("\nPc kartları");
+		//System.out.println("\nPc Cards");
 		for (int i = 0; i < 5; i++) {
             computerdeck[i] = cards[i];
         }
