@@ -1,7 +1,5 @@
 import java.util.Random;
 
-import javax.sound.sampled.SourceDataLine;
-
 public class Deck {
 	Random rd = new Random(System.currentTimeMillis());
 	private String[] color = {"Y","R","B","G" };   //YELLOW RED BLUE GREEN
@@ -12,6 +10,7 @@ public class Deck {
 	public Card[] randomCards = new Card[5];
 	public Card[] playerdeck = new Card[10];
 	public Card[] computerdeck = new Card[10];
+	public Card[] gameDeck = new Card[30];
 
 	public Card[] GamePlayerDeck = new Card[4];
 	public Card[] GameComputerDeck = new Card[4];
@@ -19,7 +18,7 @@ public class Deck {
 	
 	public Deck() {
 		cards = new Card[40];
-		cardNumber = 0 ;
+		int cardNumber = 0 ;
 		for(int c = 0; c < color.length; c++) {
 			for (int n = 0; n < no.length; n++ ) {
 				cards[cardNumber]= new Card(color[c], no[n]) ;
@@ -28,6 +27,12 @@ public class Deck {
 		} 
 	}
 
+	public void print(){
+		System.out.println("\nBefore Shuffle Deck");
+		for(int i = 0; i <40; i++) {
+			System.out.print(cards[i].getColor()+cards[i].getNo()+ " ");
+		}
+	}
 	public void Shuffle() {
         Random rd = new Random();
 
@@ -39,7 +44,7 @@ public class Deck {
             cards[i] = cards[j];
             cards[j] = temp;
         }
-
+		System.out.println("\nAfter shuffle deck");
         for (int i = 0; i < 40; i++) {
             System.out.print(cards[i].getColor() + cards[i].getNo() + " ");
         }
@@ -49,27 +54,27 @@ public class Deck {
 
 
 	public void dealPlayerCard(){
-		System.out.println("oyuncu kartları");
+		//System.out.println("\nOyuncu kartları");
 		int idx=39;
 		for (int i = 0; i < 5; i++) {
             playerdeck[i] = cards[idx];
 			idx--;
         }
-	for (int i = 0; i < 5; i++) {
+	/*for (int i = 0; i < 5; i++) {
 			System.out.print(playerdeck[i].getColor() + playerdeck[i].getNo() + " ");
-	}
+	}*/
 	}
 	public void dealComputerCard(){
-		System.out.println("pc kartları");
+		//System.out.println("\nPc kartları");
 		for (int i = 0; i < 5; i++) {
             computerdeck[i] = cards[i];
         }
-	for (int i = 0; i < 5; i++) {
+	/*for (int i = 0; i < 5; i++) {
 			System.out.print(computerdeck[i].getColor() + computerdeck[i].getNo() + " ");
-	}
+	}*/
 	}
 	public void generateRandomCardForPlayer(){
-		System.out.println("*************\nRANDOM CARDS");
+		//System.out.println("*************\nRANDOM CARDS");
 		int[] percent = new int[101];
 		for(int i = 1; i<101; i++){
 			percent[i] = i;
@@ -105,22 +110,22 @@ public class Deck {
 				}
 		}
 	}
-	for(int i=0; i<5; i++){	//burada ilk 3 kart dağıtımı yazmamız gerekiyor
+	/*for(int i=0; i<5; i++){	//burada ilk 3 kart dağıtımı yazmamız gerekiyor
 		System.out.print(randomCards[i].getColor()+randomCards[i].getNo() + " ");
-	}
-	System.out.println();
+	}*/
+	//System.out.println();
 	int writeplayer=5;
 	for(int i=0; i<5; i++){	//burada ilk 3 kart dağıtımı yazmamız gerekiyor
 		playerdeck[writeplayer]=randomCards[i];
 		writeplayer++;
 	}
-	System.out.println("OYUNCUNUN İLK 5 KART VE RANDOM KARTLARI İLE BİRLİKTE");
+	/*System.out.println("OYUNCUNUN İLK 5 KART VE RANDOM KARTLARI İLE BİRLİKTE");
 	for (int i = 0; i<10; i++) {
 			System.out.print(playerdeck[i].getColor() + playerdeck[i].getNo() + ",");
-	}
+	}*/
 }
 public void generateRandomCardForComputer(){
-		System.out.println("\n******************\nRANDOM CARDS");
+		//System.out.println("\n******************\nRANDOM CARDS");
 		int[] percent = new int[101];
 		for(int i = 1; i<101; i++){
 			percent[i] = i;
@@ -156,23 +161,23 @@ public void generateRandomCardForComputer(){
 				}
 		}
 	}
-	for(int i=0; i<5; i++){	//burada ilk 3 kart dağıtımı yazmamız gerekiyor
+	/*for(int i=0; i<5; i++){	//burada ilk 3 kart dağıtımı yazmamız gerekiyor
 		System.out.print(randomCards[i].getColor()+randomCards[i].getNo() + " ");
-	}
-	System.out.println();
+	}*/
+	//System.out.println();
 	int writeplayer=5;
 	for(int i=0; i<5; i++){	//burada ilk 3 kart dağıtımı yazmamız gerekiyor
 		computerdeck[writeplayer]=randomCards[i];
 		writeplayer++;
 	}
-	System.out.println("PC İLK 5 KART VE RANDOM KARTLARI İLE BİRLİKTE");
+	/*System.out.println("PC İLK 5 KART VE RANDOM KARTLARI İLE BİRLİKTE");
 	for (int i = 0; i<10; i++) {
 			System.out.print(computerdeck[i].getColor() + computerdeck[i].getNo() + ",");
-	}
+	}*/
 }
 
 public void SelectCardForPlayer(){
-	System.out.println("\n***************\nPLAYER GAME DECK");
+	//System.out.println("\n***************\nPLAYER GAME DECK");
 	int[] control = new int[11];
 	for(int i=1; i<11 ; i++){
 		control[i]=i;
@@ -184,12 +189,12 @@ public void SelectCardForPlayer(){
 		}
 		GamePlayerDeck[i] = playerdeck[a];
 		control[a] = -1;
-	}for (int i = 0; i<4; i++) {
+	}/*for (int i = 0; i<4; i++) {
 			System.out.print(GamePlayerDeck[i].getColor() + GamePlayerDeck[i].getNo() + ",");
-	}
+	}*/
 }
 public void SelectCardForComputer(){
-	System.out.println("\nCOMPUTER GAME DECK");
+	//System.out.println("\nCOMPUTER GAME DECK");
 	int[] control = new int[11];
 	for(int i=1; i<11 ; i++){
 		control[i]=i;
@@ -201,73 +206,18 @@ public void SelectCardForComputer(){
 		}
 		GameComputerDeck[i] = computerdeck[a];
 		control[a] = -1;
-	}for (int i = 0; i<4; i++) {
+	 }/*for (int i = 0; i<4; i++) {
 			System.out.print(GameComputerDeck[i].getColor() + GameComputerDeck[i].getNo() + ",");
+	}*/
+}
+public void printDeck(){
+	int index = 5;
+	for(int i=0; i<30; i++){
+		gameDeck[i]=new Card(cards[index].getColor(),cards[index].getNo());
+		index++;
 	}
 }
-
-
-	
 public Card cardShow(int no) {
         return cards[no];
     }
-	
-	
-	
-
-
-public void giveRandomCardToPlayer() {
-    int randomCardIndex = rd.nextInt(40);
-    // Rastgele kartı oyuncuya ver
-    System.out.println("Player received a random card: " + cards[randomCardIndex].getColor() + cards[randomCardIndex].getNo());
-    // Oyuncunun destesine ekle
-    // (Burada uygun bir indeks belirleyip, kartı playerdeck veya playergamedeck'e eklemeniz gerekecek)
-}
-
-public void giveRandomCardToComputer() {
-    int randomCardIndex = rd.nextInt(40);
-    // Rastgele kartı bilgisayara ver
-    System.out.println("Computer received a random card: " + cards[randomCardIndex].getColor() + cards[randomCardIndex].getNo());
-    // Bilgisayarın destesine ekle
-    // (Burada uygun bir indeks belirleyip, kartı computerdeck veya playercomputerdeck'e eklemeniz gerekecek)
-}
-
-public void removePlayedCardFromPlayerDeck(int playedCardNumber) {
-    // Oyuncunun attığı kartı playerdeck veya playergamedeck'ten çıkar
-    // (Burada uygun bir indeks belirleyip, kartı playerdeck veya playergamedeck'ten çıkartmanız gerekecek)
-}
-
-public void removePlayedCardFromComputerDeck() {
-    // Bilgisayarın attığı kartı computerdeck veya playercomputerdeck'ten çıkar
-    // (Burada uygun bir indeks belirleyip, kartı computerdeck veya playercomputerdeck'ten çıkartmanız gerekecek)
-}
-public int playPlayerCard(int number) {
-    if (number >= 1 && number <= 4) {
-        int index = number - 1;
-        System.out.println("Player played: " + GamePlayerDeck[index].getColor() + GamePlayerDeck[index].getNo());
-        
-        return GamePlayerDeck[index].getNo();
-    } else {
-        System.out.println("Invalid number. Please select a number between 1 and 4.");
-        return 0;
-    }
-}
-
-public int computerPlay() {
-    int computerCardIndex = rd.nextInt(4);
-    System.out.println("Computer played: " + GameComputerDeck[computerCardIndex].getColor() + GameComputerDeck[computerCardIndex].getNo());
-   
-    return GameComputerDeck[computerCardIndex].getNo();
-}
-public void addToPlayerGameDeck() {
-    // Attıktan sonra çekilen kartı playergamedeck'e ekle
-    // (Burada uygun bir indeks belirleyip, kartı playergamedeck'e eklemeniz gerekecek)
-}
-
-public void showPlayerGameDeck() {
-    // Oyuncunun elindeki kartları göster
-    // (Burada uygun bir döngü kullanarak kartları ekrana bastırabilirsiniz)
-}
-
-
 }
