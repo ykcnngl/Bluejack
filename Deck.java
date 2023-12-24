@@ -70,7 +70,7 @@ public class Deck {
 			System.out.print(computerdeck[i].getColor() + computerdeck[i].getNo() + " ");
 	}*/
 	}
-	public void generateRandomCardForPlayer(){
+	public void generateRandomCardForPlayer(){                                    //Random cards part
 		//System.out.println("*************\nRANDOM CARDS");
 		int[] percent = new int[101];
 		for(int i = 1; i<101; i++){
@@ -173,7 +173,7 @@ public void generateRandomCardForComputer(){
 	}*/
 }
 
-public void SelectCardForPlayer(){
+public void SelectCardForPlayer(){                                              //
 	//System.out.println("\n***************\nPLAYER GAME DECK");
 	int[] control = new int[11];
 	for(int i=1; i<11 ; i++){
