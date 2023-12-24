@@ -24,7 +24,7 @@ public static void playerUseCard() {
             choice = sc.nextInt();
         }
         switch (choice) {
-            case 1:                // Oyuncunun kart atma işlemi
+            case 1:                // Player's card discard process
                     System.out.println("Select a card to throw:");
                     int cardIndex = sc.nextInt();
                     while(cardIndex<0 & cardIndex>3){
@@ -36,14 +36,14 @@ public static void playerUseCard() {
                     playerCounter++;
                     break;
                 case 2:
-                    // Oyuncunun kart çekme işlemi
+                    // Player's card draw process
                     playerBoard[playerCounter] = gameDeck[boardCounter];
                     sumValueForPlayer+=gameDeck[boardCounter].getNo();
                     boardCounter++;
                     playerCounter++;
                     break;
                 case 3:
-                    // Oyuncunun pas geçme işlemi
+                    // Player passing action
                     System.out.println("Player passed.");
                     break;
                 default:
